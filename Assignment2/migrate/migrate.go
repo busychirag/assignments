@@ -1,6 +1,9 @@
 package main
 
-import "github.com/busychirag/assignments/tree/main/Assignment2/initializers"
+import (
+	"github.com/busychirag/assignments/tree/main/Assignment2/initializers"
+	"github.com/busychirag/assignments/tree/main/Assignment2/models"
+)
 
 func init() {
 	initializers.LoadEnvVariables()
@@ -8,5 +11,20 @@ func init() {
 }
 
 func main() {
-	// initializers.DB.AutoMigrate()
+	initializers.DB.AutoMigrate(
+		&models.Bank{},
+		&models.Branch{},
+		&models.Employee{},
+		&models.Customer{},
+		&models.KYCDocument{},
+		&models.AccountHolder{},
+		&models.Beneficiary{},
+		&models.Account{},
+		&models.Loan{},
+		&models.LoanPayment{},
+		&models.Collateral{},
+		&models.LoanGuarantor{},
+		&models.Transaction{},
+		&models.Card{},
+	)
 }
