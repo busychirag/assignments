@@ -78,41 +78,9 @@ Assignment2/
 
 ## Database ER Diagram
 
-```
-┌──────────┐       ┌───────────┐       ┌──────────────┐
-│   BANK   │1─────*│  BRANCH   │1─────*│   ACCOUNT    │
-│──────────│       │───────────│       │──────────────│
-│ id (PK)  │       │ id (PK)   │       │ id (PK)      │
-│ name     │       │ bank_id   │       │ customer_id  │
-│          │       │ name      │       │ branch_id    │
-│          │       │ address   │       │ account_type │
-│          │       │           │       │ balance      │
-└──────────┘       └───────────┘       └──────┬───────┘
-                                              │1
-                          ┌───────────────────┤
-                          │                   │
-                         *│                  *│
-                   ┌──────┴───────┐   ┌───────┴──────────┐
-                   │ TRANSACTION  │   │ JOINT_ACCOUNT_   │
-                   │──────────────│   │ HOLDER           │
-                   │ id (PK)      │   │──────────────────│
-                   │ account_id   │   │ id (PK)          │
-                   │ type         │   │ account_id       │
-                   │ amount       │   │ customer_id      │
-                   │ description  │   │ is_primary       │
-                   └──────────────┘   └──────────────────┘
+<img width="1714" height="1404" alt="updated er from postgres" src="https://github.com/user-attachments/assets/b5a6c9b5-d27a-4f99-8df3-ec9ee9519a9f" />
 
-┌────────────┐
-│  CUSTOMER  │1─────*┌─────────────────────┐
-│────────────│       │   LOAN              │
-│ id (PK)    │       │─────────────────────│
-│ name       │       │ id (PK)             │
-│ email (UK) │       │ customer_id         │
-│ phone      │       │ branch_id           │
-│            │       │ amount              │
-│            │       │ interest_rate (12%) │    
-│            │       │ remaining_amount    │
-└────────────┘       └─────────────────────┘
+```
 
 Relationships:
   Bank     1 ──* Branch
