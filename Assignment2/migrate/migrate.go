@@ -14,17 +14,10 @@ func main() {
 	initializers.DB.AutoMigrate(
 		&models.Bank{},
 		&models.Branch{},
-		&models.Employee{},
 		&models.Customer{},
-		&models.KYCDocument{},
-		&models.AccountHolder{},
-		&models.Beneficiary{},
 		&models.Account{},
 		&models.Loan{},
-		&models.LoanPayment{},
-		&models.Collateral{},
-		&models.LoanGuarantor{},
 		&models.Transaction{},
-		&models.Card{},
+		&models.JointAccountHolder{},
 	)
 }
